@@ -145,9 +145,13 @@ C++ 정수끼리 나눴을 때 결과물을 분수가 아닌 몫과 나머지로
 결과가 참 또는 거짓으로 결정되는 연산들입니다.
 
 > 3 == 4 (false), 4 != 7 (true), 3 < 10 (true), 4 >= 11(false)
+>
 > 3.0 == 3.0 (true), 4.0 <= 10.7 (true)
+>
 > 'a' < 'b' (true)
+>
 > "hello" != "world" (true)
+>
 > true == true (true)
 
 공통적으로 비교와 관련된 연산입니다.
@@ -170,12 +174,12 @@ C++ 정수끼리 나눴을 때 결과물을 분수가 아닌 몫과 나머지로
 |false|true |false  |
 |false|false|false  |
 
-|x    |y    |x || y |
-|-----|-----|-------|
-|true |true |true   |
-|true |false|true   |
-|false|true |true   |
-|false|false|false  |
+|x    |y    |x \|\| y |
+|-----|-----|---------|
+|true |true |true     |
+|true |false|true     |
+|false|true |true     |
+|false|false|false    |
 
 `!` 연산자는 앞의 두 연산자와 달리 하나의 `bool` 타입 피연산자를 가집니다.
 이 연산자는 피 연산자가 무엇이든 간에 그 반대 값을 결과로 가집니다.
