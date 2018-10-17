@@ -208,10 +208,56 @@ int main()
 ```
 
 * **함수의 호출**
+이제 우리가 선언한 함수를 어떻게 사용할 지에 대해서 배워봅시다.
+함수를 호출하기 위해서서는 함수의 이름과, 함수에 넘겨줄 argument를 명시해주면 됩니다.
+앞서 예시로 정의한 `float sum(float x, float y)`, `is_prime(int n)`, `greetings_to_children(std::string name, int age)`를 호출하는 예를 살펴보겠습니다.
+
+```cpp
+float x = 3.0, y = 4.0, z, w;
+z = sum(x, y);
+w = sum(z, 10.0);
+
+int n = 31;
+if (is_prime(31)) {
+    std::cout << "You got a prime number!\n";
+}
+
+std::string name = "John";
+int age = 7;
+
+greetings_to_children(name, age);
+greetings_to_children("Tom", 18);
+```
+
+함수의 이름을 써주고, 그 뒤 `()` 내부에 앞서 함수를 정의할 때 사용했던 parameter의 타입과 개수가 일치하는 arguments를 명시해주면 됩니다.
+함수를 호출할 수 있는 위치를 정할 때에는 함수가 반환하는 타입이 어떻게 쓰이느냐를 고려해줘야 합니다.
+예를 들어, 함수가 반환하는 타입이 `std::string`인데 그 결과를 `*` 연산자과 사용하려고 한다던가, `int` 변수의 값에 덮어씌우려고 한다던가 하지 않도록 합니다.
+함수가 반환하는 타입이 `void`일 경우에는 위의 예시처럼 함수 호출만 단독으로 사용할 수 있습니다.
+C++ 함수를 호출하기 위해서는 그 전에 함수를 정의해야 합니다.
+정의가 호출보다 뒤에 오면 실행할 수 없습니다.
 
 * **Call-by-value와 call-by-reference**
 
-TODO
+함수를 호출하게 되면, 함수를 호출해서 사용하던 control flow를 벗어나 함수 내부에 정의된 문장을 우선 적으로 실행하게 됩니다.
+그리고 함수 내부에 정의된 `return` 문장을 마주치면 함수를 호출하던 control flow로 돌아와서 그 다음 문장을 차례대로 실행하게 되는 것입니다.
+우리가 지금까지 살펴본 함수는 함수를 호출할 때, 그 _값_을 복사해서 넘겨주고, 계산 값을 돌려 받는 식이었습니다.
+즉, 함수에 넘겨준 argument를 덮어쓰더라도 바깥 환경에는 영향을 끼치지 않는 구조입니다.
+어떤 두 변수에 저장된 값을 서로 바꿔주기 위해 다음과 같은 함수를 작성해도, 변수에 저장된 값은 바뀌지 않는 것입니다.
+
+```cpp
+void swap(int x, int y)
+{
+    int tmp = x;
+    y = x;
+    x = tmp;
+}
+
+int main()
+{
+    int x = 3, y = 4;
+    swap(x, y);
+}
+```
 
 ## 3. Recursion
 
